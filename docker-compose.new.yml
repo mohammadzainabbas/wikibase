@@ -11,7 +11,8 @@ version: '3'
 
 services:
   wikibase:
-    image: wikibase/wikibase:1.30-bundle
+    image: wikibase/wikibase
+    platform: linux/amd64
     links:
       - mysql
     ports:
@@ -31,7 +32,8 @@ services:
       - DB_PASS=sqlpass
       - DB_NAME=my_wiki
       - MW_ADMIN_NAME=admin
-      - MW_ADMIN_PASS=adminpass
+      - MW_ADMIN_PASS=90J8XXXaO4Sr9^^Z
+      - MW_ADMIN_EMAIL=mohammadzainabbas@gmail.com
       - MW_WG_SECRET_KEY=secretkey
       - MW_ELASTIC_HOST=elasticsearch.svc
       - MW_ELASTIC_PORT=9200
@@ -45,6 +47,7 @@ services:
       MYSQL_USER: 'wikiuser'
       MYSQL_PASSWORD: 'sqlpass'
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      lower_case_table_names: 1
     networks:
       default:
         aliases:
@@ -104,7 +107,8 @@ services:
      - WDQS_HOST=wdqs.svc
      - WDQS_PORT=9999
   elasticsearch:
-    image: elasticsearch@sha256:f1dbf2019dc9a4ca5dd458635bfb31f9a601e4905e1d6ca1d65a3958d428f497
+    image: elasticsearch@sha256:017d3d7fe92217b01c68191dab31b6479b05fdb4be4315c3f293fae19748fb48
+    platform: linux/arm64/v8
     networks:
       default:
         aliases:
