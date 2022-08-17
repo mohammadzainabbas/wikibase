@@ -105,6 +105,7 @@ services:
      - WDQS_PORT=9999
   elasticsearch:
     image: elasticsearch@sha256:f1dbf2019dc9a4ca5dd458635bfb31f9a601e4905e1d6ca1d65a3958d428f497
+    platform: linux/amd64
     networks:
       default:
         aliases:
